@@ -11,10 +11,11 @@
                 'controller' => 'indexController',
                 'action' => 'index'
             ];
-            $routes['sobre'] = [
-                'route' => '/sobre',
+
+            $routes['inscreverse'] = [
+                'route' => '/inscreverse',
                 'controller' => 'indexController',
-                'action' => 'sobre'
+                'action' => 'inscreverse'
             ];
 
             $this->setRoutes($routes);
