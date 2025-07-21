@@ -24,3 +24,6 @@ Aula 11 | Melhorando a forma como os Controllers trabalham com os Models | CONCL
 Aula 12 | Abstração dos Models e considerações finais | CONCLUIDO
 ------------------------------------------------------------------------------------
 ============================== php -S localhost:8080 ==============================
+------------------------------------------------------------------------------------
+Criando Twitter Clone | ANDAMENTO
+------------------------------------------------------------------------------------
