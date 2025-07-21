@@ -17,10 +17,29 @@
                 'controller' => 'indexController',
                 'action' => 'inscreverse'
             ];
+
             $routes['registrar'] = [
                 'route' => '/registrar',
                 'controller' => 'indexController',
                 'action' => 'registrar'
+            ];
+            
+            $routes['autenticar'] = [
+                'route' => '/autenticar',
+                'controller' => 'AuthController',
+                'action' => 'autenticar'
+            ];
+            
+            $routes['timeline'] = [
+                'route' => '/timeline',
+                'controller' => 'AppController',
+                'action' => 'timeline'
+            ];
+            
+            $routes['sair'] = [
+                'route' => '/sair',
+                'controller' => 'AuthController',
+                'action' => 'sair'
             ];
 
             $this->setRoutes($routes);
