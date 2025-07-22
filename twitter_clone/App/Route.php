@@ -47,6 +47,12 @@
                 'controller' => 'AppController',
                 'action' => 'tweet'
             ];
+            
+            $routes['quem_seguir'] = [
+                'route' => '/quem_seguir',
+                'controller' => 'AppController',
+                'action' => 'quemSeguir'
+            ];
 
             $this->setRoutes($routes);
         }

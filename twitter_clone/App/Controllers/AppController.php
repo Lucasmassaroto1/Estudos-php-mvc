@@ -38,5 +38,22 @@ class AppController extends Action{
             header('Location: /?login=erro');
         }
     }
+
+    public function quemSeguir(){
+        $this->validaAutenticacao();
+        $pesquisaPor = isset($_GET['pesquisaPor']) ? $_GET['pesquisaPor'] : '';
+
+        $usuarios = [];
+
+        if($pesquisaPor != ''){
+            $usuario = Container::getModel('Usuario');
+            $usuario->__set('nome', $pesquisaPor);
+            $usuarios = $usuario->getAll();
+        }
+
+        $this->view->usuarios = $usuarios;
+
+        $this->render('quemSeguir');
+    }
 }
 ?>
