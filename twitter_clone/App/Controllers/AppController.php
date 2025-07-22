@@ -2,6 +2,8 @@
 namespace App\Controllers;
 
 // Recursos Necessarios
+
+use App\Models\Usuario;
 use MF\Controller\Action;
 use MF\Model\Container;
 // Models
@@ -18,6 +20,13 @@ class AppController extends Action{
         $tweets = $tweet->getAll();
 
         $this->view->tweets = $tweets;
+
+        $usuario = Container::getModel('Usuario');
+        $usuario->__set('id', $_SESSION['id']);
+        $this->view->info_usuario = $usuario->getInfoUsuario();
+        $this->view->total_tweets = $usuario->getTotalTweets();
+        $this->view->total_seguindo = $usuario->getTotalSeguindo();
+        $this->view->total_seguidores = $usuario->getTotalSeguidores();
 
         $this->render('timeline');
     }
@@ -54,6 +63,13 @@ class AppController extends Action{
 
         $this->view->usuarios = $usuarios;
 
+        $usuario = Container::getModel('Usuario');
+        $usuario->__set('id', $_SESSION['id']);
+        $this->view->info_usuario = $usuario->getInfoUsuario();
+        $this->view->total_tweets = $usuario->getTotalTweets();
+        $this->view->total_seguindo = $usuario->getTotalSeguindo();
+        $this->view->total_seguidores = $usuario->getTotalSeguidores();
+
         $this->render('quemSeguir');
     }
 
@@ -72,6 +88,19 @@ class AppController extends Action{
             $usuario->deixarSeguirUsuario($id_usuario_seguindo);
         }
         header('Location: /quem_seguir');
+    }
+
+    public function apagaTweet(){
+        $this->validaAutenticacao();
+
+        $id_tweet = isset($_GET['id_tweet']) ? $_GET['id_tweet'] : '';
+
+        $usuario = Container::getModel('Usuario');
+        $usuario->__set('id', $_SESSION['id']);
+        if($id_tweet){
+            $usuario->apagaTweet($id_tweet);
+        }
+        header('Location: /timeline');
     }
 }
 ?>

@@ -60,6 +60,12 @@
                 'action' => 'acao'
             ];
 
+            $routes['apagaTweet'] = [
+                'route' => '/apagaTweet',
+                'controller' => 'AppController',
+                'action' => 'apagaTweet'
+            ];
+
             $this->setRoutes($routes);
         }
 
